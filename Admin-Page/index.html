@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviation Management Dashboard</title>
+  
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js for Graphs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="./assets/images/Logo.png" alt="">
+      <a href="../Login-Page/index.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="../Registration-Page/index.html"><i class="fas fa-user-plus"></i> Registration</a>
+      <a href="../UserProfile-Page/index.html"><i class="fas fa-user"></i> User Profile</a>
+      <a href="../safety-page/index.html"><i class="fas fa-exclamation-triangle"></i> Safety and Incident Management</a>
+      <a href="../RiskAssessment-Page/index.html"><i class="fas fa-exclamation-triangle"></i> Risk Assessment</a>
+      <a href="../Education-Page/index.html"><i class="fas fa-chalkboard-teacher"></i> Training and Certification</a>
+      <a href="../SafetyDashboard/index.html"><i class="fas fa-home"></i> Dashboard</a>
+      <a href="../Compliance/index.html"><i class="fas fa-balance-scale"></i> Compliance and Reporting</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content w-100">
+      <!-- Dashboard Section -->
+      <div id="dashboard">
+        <h2>Dashboard Overview</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card text-white bg-primary">
+              <div class="card-body">
+                <h5 class="card-title">Total Incidents</h5>
+                <p class="card-text">23 Open / 45 Total</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-white bg-success">
+              <div class="card-body">
+                <h5 class="card-title">Training Compliance</h5>
+                <p class="card-text">76% Completed</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-white bg-danger">
+              <div class="card-body">
+                <h5 class="card-title">Expiring Certifications</h5>
+                <p class="card-text">12 Expiring Soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container for Incidents and Training -->
+      <div class="container">
+        <!-- Incidents Section -->
+        <div id="incidents" class="dashboard-widget">
+          <h2>Incidents</h2>
+          <div class="chart-container">
+            <canvas id="incidentChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Training Section -->
+        <div id="training" class="dashboard-widget">
+          <h2>Training</h2>
+          <div class="chart-container">
+            <canvas id="trainingChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard">
+        <!-- Empty containers for Safety Reports, Pilot Fatigue, Incident Trends -->
+        
+        <div id="scatter-plot">
+            <h3>Scatter Plot of Flight Hours vs Sleep Quality vs Fatigue Incidents</h3>
+            <canvas id="scatterPlotChart"></canvas>
+        </div>
+        
+  
+        
+        <div class="widget" id="pilotFatigue">
+            <h3>Pilot Fatigue</h3>
+            <!-- Chart will be inserted here later -->
+            <canvas id="pilotFatigueChart"></canvas>
+        </div>
+        
+        
+    </div>
+
+      <!-- Certifications Section -->
+      <div id="certifications">
+        <h2>Certifications</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Certification</th>
+              <th>Employee</th>
+              <th>Expiration Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aircraft Safety</td>
+              <td>John Doe</td>
+              <td>2024-12-01</td>
+              <td><span class="badge bg-warning">Expiring Soon</span></td>
+            </tr>
+            <tr>
+              <td>Emergency Response</td>
+              <td>Jane Smith</td>
+              <td>2025-03-15</td>
+              <td><span class="badge bg-success">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Notifications Section -->
+      <div id="notifications">
+        <h2>Notifications</h2>
+        <ul class="list-group">
+          <li class="list-group-item">New incident reported on Aircraft A123</li>
+          <li class="list-group-item">Training assignment: Emergency Response</li>
+          <li class="list-group-item">Certification expiring for Jane Smith</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2024 Aviation Safety. All Rights Reserved.</p>
+</footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Incident Chart
+    const incidentCtx = document.getElementById('incidentChart').getContext('2d');
+    new Chart(incidentCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Open', 'Resolved', 'Under Investigation'],
+        datasets: [{
+          data: [12, 45, 5],
+          backgroundColor: ['#dc3545', '#28a745', '#ffc107']
+        }]
+      }
+    });
+
+    // Training Chart
+    const trainingCtx = document.getElementById('trainingChart').getContext('2d');
+    new Chart(trainingCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Pilot', 'Maintenance', 'Safety'],
+        datasets: [{
+          label: 'Completion %',
+          data: [80, 70, 60],
+          backgroundColor: '#17a2b8'
+        }]
+      }
+    });
+    // Pilot Fatigue Chart
+const pilotFatigueCtx = document.getElementById('pilotFatigueChart').getContext('2d');
+new Chart(pilotFatigueCtx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    datasets: [{
+      label: 'Fatigue Level',
+      data: [40, 55, 60, 45, 70],
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1
+    }]
+  }
+});
+
+// Scatter plot for Flight Hours vs Sleep Quality vs Fatigue Incidents
+const scatterPlotCtx = document.getElementById('scatterPlotChart').getContext('2d');
+
+// Data for the scatter plot
+const data = {
+    datasets: [{
+        label: 'Fatigue Incidents by Flight Hours & Sleep Quality',
+        data: [
+            {x: 40, y: 85, r: 5},  // flight hours, sleep quality, incidents (size of point)
+            {x: 60, y: 70, r: 10},
+            {x: 80, y: 50, r: 15},
+            {x: 100, y: 30, r: 20},
+            {x: 120, y: 20, r: 25},
+            {x: 150, y: 15, r: 30}
+        ],
+        backgroundColor: '#ff5733', // Color for the points
+        borderColor: '#c70039',
+        borderWidth: 2
+    }]
+};
+
+// Creating the scatter plot with chart.js
+new Chart(scatterPlotCtx, {
+    type: 'bubble',
+    data: data,
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Flight Hours (Last Month)'
+                },
+                ticks: {
+                    color: '#ffffff'
+                }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Sleep Quality (%)'
+                },
+                ticks: {
+                    color: '#ffffff'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: false // Hiding the legend for simplicity
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return `Flight Hours: ${tooltipItem.raw.x}, Sleep Quality: ${tooltipItem.raw.y}% | Incidents: ${tooltipItem.raw.r}`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+
+
+    
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

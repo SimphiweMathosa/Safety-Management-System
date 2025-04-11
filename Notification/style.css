@@ -1,0 +1,76 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.notifications-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header {
+    background: #4caf50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.notification-content {
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.notification-time {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.new-notification {
+    background: #e8f5e9;
+    border-left: 5px solid #4caf50;
+}
+
+.warning-notification {
+    background: #fff3e0;
+    border-left: 5px solid #ff9800;
+}
+
+.expiry-notification {
+    background: #ffebee;
+    border-left: 5px solid #f44336;
+}

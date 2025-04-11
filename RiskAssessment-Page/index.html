@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviation Management Dashboard</title>
+  
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="./assets/images/Logo.png" alt="" class="logo" >
+    </form>
+      <a href="../Login-Page/index.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="../Registration-Page/index.html"><i class="fas fa-user-plus"></i> Registration</a>
+      <a href="../UserProfile-Page/index.html"><i class="fas fa-user"></i> User Profile</a>
+      <a href="../safety-page/index.html"><i class="fas fa-exclamation-triangle"></i> Safety and Incident Management</a>
+      <a href="../RiskAssessment-Page/index.html"><i class="fas fa-exclamation-triangle"></i> Risk Assessment</a>
+      <a href="../Education-Page/index.html"><i class="fas fa-chalkboard-teacher"></i> Training and Certification</a>
+      <a href="../Admin-Page/index.html"><i class="fas fa-home"></i> Dashboard</a>
+      <a href="../Compliance/index.html"><i class="fas fa-balance-scale"></i> Compliance and Reporting</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content w-100">
+      <!-- Risk Assessment Section -->
+      <div id="incident-management">
+        <section class="risk-assessment">
+          <h2>Risk Assessment Form</h2>
+          <form action="/submit-risk-assessment" method="POST">
+            <h2>Risk Assessment</h2>
+             <h4>Fill in the correct information</h4>
+              <label for="incident-id">Incident ID:</label>
+              <input type="number" id="incident-id" name="incident-id" required>
+
+              <label for="risk-description">Risk Description:</label>
+              <textarea id="risk-description" name="risk-description" rows="4" required></textarea>
+
+              <label for="severity">Severity:</label>
+              <select id="severity" name="severity" required>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+              </select>
+
+              <label for="likelihood">Likelihood:</label>
+              <select id="likelihood" name="likelihood" required>
+                  <option value="Unlikely">Unlikely</option>
+                  <option value="Possible">Possible</option>
+                  <option value="Likely">Likely</option>
+                  <option value="Certain">Certain</option>
+              </select>
+
+              <label for="preventive-actions">Preventive Actions:</label>
+              <textarea id="preventive-actions" name="preventive-actions" rows="4" required></textarea>
+
+              <button type="submit">Submit Risk Assessment</button>
+          </form>
+        </section>
+        
+        <section class="incident-table mt-4">
+          <h2>Risk Assessments</h2>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Incident ID</th>
+                <th>Risk Description</th>
+                <th>Severity</th>
+                <th>Likelihood</th>
+                <th>Preventive Actions</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="risk-assessment-table-body">
+              <!-- Dynamic rows will be inserted here -->
+            </tbody>
+          </table>
+        </section>
+      </div>
+      
+    </div>
+        
+  </div>
+  
+
+ 
+
+  <footer class="footer">
+    <p>&copy; 2024 Aviation Safety. All Rights Reserved.</p>
+  </footer>
+
+  <script src="./script.js"></script>
+  
+  <!-- External JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

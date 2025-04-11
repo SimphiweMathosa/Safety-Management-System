@@ -1,0 +1,232 @@
+/* General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+
+:root {
+    --main-color: hsl(163, 99%, 38%);
+    --secondary-color: hsl(221, 7%, 44%);
+    --background-dark: hsl(221, 24%, 13%);
+    --text-light: hsl(0, 0%, 100%);
+    --text-muted: hsl(221, 7%, 70%);
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: url('./assets/images/bg.jpeg') no-repeat center center/cover;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 13%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+.navbar a{
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    margin-right: 30px;
+    text-decoration: none;
+}
+.navbar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    bottom: -5px;
+    border-radius: 5px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: .5s ease;
+}
+.navbar a:hover:after{
+    transform: translateY(0);
+    opacity: 1;
+}
+.search-bar{
+    width: 250px;
+    height: 45px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+}
+.search-bar input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.search-bar button{
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.search-bar input::placeholder{
+    color: #fff;
+}
+.search-bar button i{
+    font-size: 22px;
+}
+
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* Compliance Audit Section */
+.compliance-audit-section {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 1rem auto;
+    border-radius: 10px;
+    width: 90%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Compliance Metrics */
+.compliance-metrics h2,
+.audit-reports h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--main-color);
+}
+
+.metrics-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.metric-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.metric-box .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--main-color);
+}
+
+.metric-box h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.metric-box p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.progress-bar {
+    background: var(--secondary-color);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-bar .progress {
+    background: var(--main-color);
+    height: 100%;
+}
+
+/* Audit Reports */
+.reports-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.report-card {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.report-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.report-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--main-color);
+}
+
+.report-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.report-card p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.report-card .btn {
+    background: var(--main-color);
+    color: var(--text-light);
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.report-card .btn:hover {
+    background: var(--secondary-color);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
+}

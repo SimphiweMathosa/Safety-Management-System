@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>  
+    <title>Training Page - Aviation Safety Management Software</title>
+</head>
+<body>
+    <!-- NAVBAR  -->
+   <header class="header">
+    <nav class="navbar">
+        <a href="../Admin-Page/index.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Privacy and Policy</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Help and Support</a>
+    </nav>
+    <form action="" class="search-bar">
+       <input type="text" placeholder="Search...">
+       <button><i class='bx bx-search'></i></button>
+    </form>
+   </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="background"></div>
+    <div class="container-t">
+        <section class="service">
+            <h1 class="heading">Training & Certifications</h1>
+            <div class="wrapper">
+                <!-- Training Material Section -->
+                <div class="box">
+                    <i class='bx bx-book-reader'></i>
+                    <h2>Training Materials</h2>
+                    <p>Access videos, manuals, and case studies tailored for aviation safety.</p>
+                    <a href="#" class="btn">View Materials</a>
+                    <button class="btn" onclick="openPopup(1)">Read More</button>
+                </div>
+
+                <!-- Quizzes and Assessments -->
+                <div class="box">
+                    <i class='bx bx-task'></i>
+                    <h2>Quizzes & Assessments</h2>
+                    <p>Test your knowledge with quizzes and real-world scenarios.</p>
+                    <a href="#" class="btn">Start Quiz</a>
+                    <button class="btn" onclick="openPopup(2)">Read More</button>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="box">
+                    <i class='bx bx-line-chart'></i>
+                    <h2>Progress Tracker</h2>
+                    <p>Modules Completed: 3/5</p>
+                    <button class="btn">Mark as Complete</button>
+                    <button class="btn" onclick="openPopup(3)">Read More</button>
+                </div>
+
+                <!-- Certification Management -->
+                <div class="box">
+                    <i class='bx bx-certification'></i>
+                    <h2>Certification Management</h2>
+                    <p>View certifications, validity, and renewal status.</p>
+                    <a href="#" class="btn">View Certifications</a>
+                    <button class="btn" onclick="openPopup(1)">Read More</button>
+                </div>
+
+                <!-- Download Certificate -->
+                <div class="box">
+                    <i class='bx bx-download'></i>
+                    <h2>Download Certificates</h2>
+                    <p>Download digital certificates with aviation-specific branding.</p>
+                    <a href="#" class="btn">Download</a>
+                    <button class="btn" onclick="openPopup(2)">Read More</button>
+                </div>
+
+                <!-- Notifications -->
+                <div class="box">
+                    <i class='bx bx-bell'></i>
+                    <h2>Notifications</h2>
+                    <p>Stay updated with reminders for expiring certifications.</p>
+                    <a href="#" class="btn">View Notifications</a>
+                    <button class="btn" onclick="openPopup(3)">Read More</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL STRUCTURE -->
+    <div id="popup-1" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup(1)">&times;</span>
+            <h2>Training Materials</h2>
+            <p>This module covers the fundamental principles of aviation safety, including airworthiness, regulations, and compliance guidelines.</p>
+            <p><strong>Progress:</strong> 2/5 Modules Completed</p>
+            <button class="btn">Mark as Complete</button>
+        </div>
+    </div>
+
+    <div id="popup-2" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup(2)">&times;</span>
+            <h2>Quizzes & Assessments</h2>
+            <p>This module explores strategies for managing pilot fatigue to ensure safety during operations.</p>
+            <p><strong>Progress:</strong> 1/5 Modules Completed</p>
+            <button class="btn">Mark as Complete</button>
+        </div>
+    </div>
+
+    <div id="popup-3" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup(3)">&times;</span>
+            <h2>Progress Tracker</h2>
+            <p>Learn how to identify, assess, and mitigate risks in aviation through this module.</p>
+            <p><strong>Progress:</strong> 0/5 Modules Completed</p>
+            <button class="btn">Mark as Complete</button>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Aviation Safety. All Rights Reserved.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
